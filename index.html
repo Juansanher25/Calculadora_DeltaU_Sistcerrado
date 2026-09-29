@@ -240,7 +240,7 @@ input[readonly]{background:#f0f0e2 !important;color:#5a6332;cursor:not-allowed}
         <div class="group">
           <h3>Casos</h3>
           <ul style="list-style:none;margin:0;padding:0">
-            <li><button class="navbtn active" data-case="case-1"><span class="num">01</span>Isochorico — V constante</button></li>
+            <li><button class="navbtn active" data-case="case-1"><span class="num">01</span>Isocórico — V constante</button></li>
             <li><button class="navbtn" data-case="case-2"><span class="num">02</span>Isobárico — P constante</button></li>
             <li><button class="navbtn" data-case="case-3"><span class="num">03</span>Isotérmico — T constante</button></li>
             <li><button class="navbtn" data-case="case-4"><span class="num">04</span>Adiabático — Q = 0</button></li>
@@ -465,7 +465,7 @@ input[readonly]{background:#f0f0e2 !important;color:#5a6332;cursor:not-allowed}
             </div>
           </fieldset>
           <div class="frow">
-            <button type="button" class="primary blue" data-calc="poly">Calcular proceso politrópico</button>
+            <button type="button" class="primary blue" data-calc="poly">Calcular proceso adiabático</button>
             <label class="cbox"><input type="checkbox" id="n-fromV"> Sistema cerrado: obtener m de V₁ (m = P₁·V₁/(R·T₁))</label>
           </div>
           <div class="metrics" id="m-poly">
@@ -790,7 +790,7 @@ function calcIsotherm(){
   setMsg("d-"+key, "Verificación: V₂/V₁ = P₁/P₂ = " + fmt(P1/P2) + " · Wb = m·R·T·ln(V₂/V₁) = " + fmt(Wb) + " kJ · con ΔU = 0 el balance exige Qnet,in = Wb − W_e,in = " + fmt(Q) + " kJ.");
 }
 
-/* ---------- Caso: isocórico ---------- */
+/* ---------- Caso: Isocórico ---------- */
 function calcIsoch(){
   var key = "isoch", pr = "v-";
   clearErr(key); setMsg("d-"+key, ""); setMsg("w-"+key, "");
@@ -884,7 +884,7 @@ function calcPoly(){
   if (src.warn) setMsg("w-"+key, src.warn);
   var k = cp / cv;
   if (Math.abs(n - k) < 0.02 && Math.abs(Q) <= 0.01 * Math.max(1, Math.abs(dU))){
-    setMsg("d-"+key, "Q ≈ 0: con n = k = " + fmt(k) + " el proceso es adiabático, coherente con el balance ΔU + Wb − W_e,in = 0.");
+    setMsg("d-"+key, "Q ≈ 0: con n = k = " + fmt(k) + " El proceso es adiabático, coherente con el balance ΔU + Wb − W_e,in = 0.");
   } else {
     setMsg("d-"+key, "Balance: Qnet,in = ΔU + Wb − W_e,in = " + fmt(dU) + " + " + fmt(Wb) + " − " + fmt(We) + " = " + fmt(Q) + " kJ.");
   }
